@@ -1,96 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#161616" media="(prefers-color-scheme: dark)">
+
     <title>sedisocks</title>
-	<style>
-	    body {
-	        display: flex;
-	        justify-content: center;
-	        align-items: center;
-	        height: 100vh;
-	        margin: 0;
-	        text-align: center;
-	        background-color: #f7f7f7;
-	        margin: 10px 0;
-	        color: black;
-	        text-decoration: none;
-	        font-size: 16px;
-			font-family: "Barlow", sans-serif;
-			font-weight: 400;
-			font-style: normal;
-	    }
-	    .links a {
-	        display: block;
-	        margin: 10px 0;
-	        text-decoration: none;
-	    }
-	    .links a:hover {
-	        text-decoration: underline;
-	    }
-	    .links span a {
-	        display: inline;
-	        margin: 0 4px;
-	    }
-	    .email > span:nth-child(2) {
-	        display: none;
-	    }
-		.video {
-		    width: min(560px, 90vw);
-		    aspect-ratio: 16 / 9;
-		    margin: 20px auto 0;
-		}
-		.video iframe {
-		    width: 100%;
-		    height: 100%;
-		    border: 0;
-		}
-		.divider {
-		    width: min(720px, 96vw);
-		    border: 0;
-		    border-top: 1px solid #d0d0d0;
-		    margin: 48px auto;
-		}
-	</style>
+    <meta name="description" content="sedisocks, 3d generalist">
+
+    <link rel="canonical" href="https://sedi.uk/">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="sedisocks">
+    <meta property="og:description" content="3d generalist">
+    <meta property="og:url" content="https://sedi.uk/">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "sedisocks",
+      "alternateName": [
+        "sedimentarysocks",
+        "Tim Brown Lees",
+        "T Brown Lees",
+        "Timothy Brown Lees",
+        "Thia Brown Lees",
+        "Timothia Brown Lees"
+      ],
+      "url": "https://sedi.uk/",
+      "jobTitle": "3D Generalist",
+      "worksFor": { "@type": "Organization", "name": "Rockstar Games" },
+      "sameAs": [
+        "https://sedisocks.com/",
+        "https://www.artstation.com/sedisocks",
+        "https://www.youtube.com/@sedisocks",
+        "https://twitter.com/sedisocks",
+        "https://bsky.app/profile/sedisocks.com"
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        /* light by default, dark if the system prefers it */
+        :root {
+            color-scheme: light;
+            --bg: #f7f7f7;
+            --text: #000;
+            --line: #d0d0d0;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+                --bg: #161616;
+                --text: #ececec;
+                --line: #333;
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 16px;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        main { max-width: 100%; }
+
+        /* hidden visually, still readable by screen readers */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        .tagline { margin: 0; }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+        a:hover { text-decoration: underline; }
+
+        .divider {
+            width: min(360px, 80vw);
+            margin: 28px auto;
+            border: 0;
+            border-top: 1px solid var(--line);
+        }
+
+        /* links */
+        .links a { display: block; }
+        .links .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0 8px;
+        }
+    </style>
 </head>
 <body>
-    <div class="links">
-		<p>3d generalist</p>
-		<p>currently lighting cinematics @ rockstar</p>
-		<hr class="divider">
-        <div id="e" data-x="1"></div>
-
-        <!-- bot bait -->
-        <div style="display:none;">
-          contact@fake-domain.com
-        </div>
-		
-        <script src="/assets/app.min.js" defer></script>
-        <a href="https://www.artstation.com/sedisocks" target="_blank">https://www.artstation.com/sedisocks</a>
-        <a href="https://www.youtube.com/@sedisocks" target="_blank">https://www.youtube.com/@sedisocks</a>
-		<span>
-		<a href="https://twitter.com/sedisocks" target="_blank">https://twitter.com/sedisocks</a> | <a href="https://sedisocks.bsky.social" target="_blank">https://sedisocks.bsky.social</a>
-		</span>
+    <main>
+        <header>
+            <h1 class="visually-hidden">sedisocks</h1>
+            <p class="tagline">3d generalist<br>currently lighting cinematics @ rockstar</p>
+        </header>
 
         <hr class="divider">
 
-        <a href="https://www.youtube.com/watch?v=7QAwICGJNZs" target="_blank">2021 reel:</a>
+        <nav class="links" aria-label="Profiles">
+            <!-- email gets added here by app.min.js -->
+            <div id="e" data-x="1"></div>
 
-		
-        <div class="video">
-			<a class="yt-privacy-embed" href="https://www.youtube.com/watch?v=7QAwICGJNZs" style="display:block;position:relative;width:100%;aspect-ratio:16/9;background:#000;" onclick="event.preventDefault();this.outerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube-nocookie.com/embed/7QAwICGJNZs?autoplay=1\' title=\'YouTube video player\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\' referrerpolicy=\'strict-origin-when-cross-origin\' allowfullscreen style=\'aspect-ratio:16/9;\'></iframe>'">
-			  <img src="https://i.ytimg.com/vi/7QAwICGJNZs/maxresdefault.jpg" alt="Video thumbnail" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" onerror="this.src='https://i.ytimg.com/vi/7QAwICGJNZs/hqdefault.jpg'">
-			  <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;" viewBox="0 0 68 48">
-			    <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/>
-			    <path d="M45 24L27 14v20" fill="#fff"/>
-			  </svg>
-			</a>
-        </div>
-		
-    </div>
+            <!-- bot bait -->
+            <div hidden>contact@fake-domain.com</div>
+
+            <a href="https://www.artstation.com/sedisocks" target="_blank" rel="me noopener">artstation.com/sedisocks</a>
+            <a href="https://www.youtube.com/@sedisocks" target="_blank" rel="me noopener">youtube.com/@sedisocks</a>
+            <div class="row">
+                <a href="https://twitter.com/sedisocks" target="_blank" rel="me noopener">twitter.com/sedisocks</a>
+                <span aria-hidden="true">|</span>
+                <a href="https://bsky.sedisocks.com" target="_blank" rel="me noopener">bsky.sedisocks.com</a>
+            </div>
+            <a href="https://www.youtube.com/watch?v=7QAwICGJNZs" target="_blank" rel="noopener">2021 lighting reel</a>
+        </nav>
+    </main>
+
+    <script src="/assets/app.min.js" defer></script>
 </body>
 </html>
