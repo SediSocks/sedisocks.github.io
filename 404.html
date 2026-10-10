@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#161616" media="(prefers-color-scheme: dark)">
+    <meta name="robots" content="noindex">
+    <title>404 | sedisocks</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        /* light by default, dark if the system prefers it */
+        :root {
+            color-scheme: light;
+            --bg: #f7f7f7;
+            --text: #000;
+            --line: #d0d0d0;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+                --bg: #161616;
+                --text: #ececec;
+                --line: #333;
+            }
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 16px;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "Barlow", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        p { margin: 0; }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.25em;
+            text-decoration-color: rgba(128, 128, 128, 0.5);
+            transition: text-decoration-color 0.15s;
+        }
+        a:hover { text-decoration-color: currentColor; }
+
+        .divider {
+            width: min(360px, 80vw);
+            margin: 28px auto;
+            border: 0;
+            border-top: 1px solid var(--line);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p>404<br>nothing here</p>
+        <hr class="divider">
+        <a href="/">sedisocks.com</a>
+    </main>
+</body>
+</html>
